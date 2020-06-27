@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Day2AppList.MainPages">
+    <ContentPage.Content>
+
+        <ListView x:Name="listImpl" Header="" Footer="" ItemSelected="listImpl_ItemSelected">
+            <ListView.HeaderTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" Text="Name" BackgroundColor="Gray" FontSize="Medium"></Label>
+                        <Label Grid.Column="1" Text="Designation" BackgroundColor="Gray" FontSize="Medium"></Label>
+                        <Label Grid.Column="2" Text="Image" BackgroundColor="Gray" FontSize="Medium"></Label>
+                        <Label Grid.Column="3" Text="Select" BackgroundColor="Gray" FontSize="Medium"></Label>
+                    </Grid>  
+        </DataTemplate>  
+    </ListView.HeaderTemplate>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell Height="300">
+                            <Grid Padding="10">
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="2"   Grid.Row="0" Grid.RowSpan="3"  
+                           Aspect="AspectFit"
+                          
+                           Source="{Binding Image}"
+                           
+                            />
+                            <Label Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"  
+                           Text="{Binding EmpName}"
+                           FontAttributes="Bold" />
+
+                            <Label Grid.Column="1" Grid.Row="0" Grid.RowSpan="3"  
+                          
+                           Text="{Binding EmpDesig}"
+                           />
+
+                            <Image Grid.Column="3"  Grid.Row="0" Grid.RowSpan="3"  
+                                 Aspect="AspectFit" 
+                           Source="{Binding TickImg}"
+                           HorizontalOptions="End" IsVisible="true" 
+                                  />
+                        </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            <ListView.FooterTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Button Text="Submit" BackgroundColor="Coral" HorizontalOptions="Center"  Clicked="Button_Clicked"></Button>
+                    </Grid>
+                </DataTemplate>
+            </ListView.FooterTemplate>
+        </ListView>
+       
+       
+    </ContentPage.Content>
+</ContentPage>
